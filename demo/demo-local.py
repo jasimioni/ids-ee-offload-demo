@@ -224,9 +224,9 @@ for b, (X, y) in enumerate(loader):
             
         certainty_r = certainty_r.cpu().detach().numpy().tolist()
         predicted_r = predicted_r.cpu().detach().numpy().tolist()
-        print(f"Exit 2: {1e3 * elapsed_time:6.2f}ms (CPU: {1e3 * elapsed_process_time:6.2f}ms)", end='')
+        print(f"Exit 2: {1e3 * elapsed_time:6.2f}ms (CPU: {1e3 * elapsed_process_time:7.2f}ms)", end='')
     else:
-        print('                                                                ', end='')
+        print('                                                                 ', end='')
         certainty_r = []
         predicted_r = []
     

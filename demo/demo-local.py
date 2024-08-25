@@ -68,7 +68,7 @@ if len(df.columns) == 58:
     df['class'] = 0
 
 data   = CustomDataset(as_matrix=True, df=df)
-loader = DataLoader(data, batch_size=1, shuffle=True)
+loader = DataLoader(data, batch_size=1, shuffle=False)
 
 class EEProcessorClient(object):
     def __init__(self):
@@ -139,6 +139,9 @@ def s_incorrect():
 
 def s_rejected():
     return orange('? Rejected')
+
+def s_predicted(p_class):
+    return "Normal" if p_class == 0 else "Attack"
 
 eeprocessor = EEProcessorClient()
 
@@ -274,7 +277,7 @@ for b, (X, y) in enumerate(loader):
     
     #  print(f"Rejection: {rejected/count*100:.2f}%")
     
-    print(" | Prediction: ", end='')
+    print(f" | Prediction: {s_predicted(prediction)} ", end='')
     
     if prediction == 'rejected':
         print(s_rejected())

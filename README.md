@@ -4,6 +4,7 @@ This project aims to use Early-Exits Neural Networks with remote offloading of t
 later branches:
 
 ![Prototype](figs/prototipo.png)
+![DNN](figs/DNN Based NIDs.png)
 
 ## Directory struct review
 

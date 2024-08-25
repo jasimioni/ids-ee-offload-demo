@@ -56,7 +56,7 @@ else:
     model = AlexNetWithExits().to(device)
 
 model_t = ModelWithTemperature(model, device=device)
-model_t.load_state_dict(torch.load(args.trained_network_file))
+model_t.load_state_dict(torch.load(args.trained_network_file, map_location=device))
 model_t.model.eval()
 model_t.model(torch.rand(1, 1, 8, 8).to(device))  # Run the network once to cache it
 
